@@ -20,6 +20,10 @@ also, no PHP frameworks were used in the making of this Project.
 - AJAX
 - MySQL (with PHPMyAdmin)
 
+## Setup
+I've included a simple database seeder script under "seeder/seeder.php", run that and the script should automatically create and seed a database for you!
+You might want to change the servername, user, and password if your workstation is setup differently from mine. 
+
 ## Todo/Planned Features
 - Keyboard shortcuts
 - Expiry date on idle User accounts
