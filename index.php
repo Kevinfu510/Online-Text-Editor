@@ -20,8 +20,15 @@
             $(document).ready(function(){
                 var div = document.getElementById("dom-target");
                 var myData = <?php
-                               if (isset($_GET['fail'])) {echo "'Password mismatch or User already exists'";}
-                               else {echo "'NO FAIL'";}
+                              if (isset($_GET['fail'])) {
+                                if ($_GET['fail'] == 1){
+                                  echo "'Password mismatch or User already exists'";
+                                }
+                                else if ($_GET['fail'] == 2){
+                                  echo "'Password, and Username must be at least 3 characters long'";
+                                }
+                              }
+                              else {echo "'NO FAIL'";}
                              ?>;
                 webix.ui({
                     view:"layout",

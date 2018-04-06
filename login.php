@@ -2,6 +2,12 @@
     // Start the session
     session_start();
     if (isset($_POST['username']) && isset($_POST['password'])) {
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+        if (strlen($username) < 3 or strlen($password) < 3) {
+            header("Location: /addemp/Online Text Editor/index.php?fail=2");
+            exit();
+        }
         $servername = "localhost";
         $server_user = "root";
         $server_password = "";
@@ -13,9 +19,6 @@
             die("Connection failed: " . $conn->connect_error);
         }
         mysqli_select_db($conn,"editor");
-
-        $username = $_POST['username'];
-        $password = $_POST['password'];
 
         $result = mysqli_query($conn, "SELECT * FROM Users WHERE username LIKE '$username'");
         if($result === FALSE) { 
