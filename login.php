@@ -5,7 +5,7 @@
         $username = $_POST['username'];
         $password = $_POST['password'];
         if (strlen($username) < 3 or strlen($password) < 3) {
-            header("Location: /addemp/Online Text Editor/index.php?fail=2");
+            header("Location: /addemp/Online-Text-Editor/index.php?fail=2");
             exit();
         }
         $servername = "localhost";
@@ -28,11 +28,11 @@
             if ($row['password'] === md5($password)) {
                 $_SESSION['session_id'] = $username;
                 $_SESSION['session_user_id'] = $row['id'];
-                header("Location: /addemp/Online Text Editor/main.php");
+                header("Location: /addemp/Online-Text-Editor/main.php");
                 exit();
             }
             else {
-                header("Location: /addemp/Online Text Editor/index.php?fail=1");
+                header("Location: /addemp/Online-Text-Editor/index.php?fail=1");
                 exit();
             }
         }
@@ -40,7 +40,7 @@
         $sql = "INSERT INTO users (username, password) VALUES('$username', md5('$password'))";
         $_SESSION['session_id'] = $username;
         $_SESSION['session_user_id'] = $row['id'];
-        header("Location: /addemp/Online Text Editor/main.php");
+        header("Location: /addemp/Online-Text-Editor/main.php");
     }
     else {
         echo "401 Authorized Access";

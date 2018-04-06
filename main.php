@@ -13,7 +13,7 @@
     <body>
         <script type="text/javascript" charset="utf-8">
             $(document).ready(function() {
-                $.getJSON('/addemp/Online Text Editor/retrieve_files.php', function(jsonData) {
+                $.getJSON('/addemp/Online-Text-Editor/retrieve_files.php', function(jsonData) {
                     if (jsonData == "403") {
                         var header_title = "403 Unauthorized Access"
                         webix.ui({
@@ -110,7 +110,7 @@
                                 method: 'GET',
                                 success: function() {
                                     console.log("Logout");
-                                    window.location = "/addemp/Online Text Editor/index.php";
+                                    window.location = "/addemp/Online-Text-Editor/index.php";
                                 },
                                 error: function() {
                                     console.log('Something bad happened');
@@ -137,7 +137,7 @@
                             });
                         });
                         function refresh_tree() {
-                            $.getJSON('/addemp/Online Text Editor/retrieve_files.php', function(jsonData) {
+                            $.getJSON('/addemp/Online-Text-Editor/retrieve_files.php', function(jsonData) {
                                 var obj = JSON.stringify(jsonData);
                                 $$('MyTree').define("data", obj);
                                 $$('MyText').disable();
